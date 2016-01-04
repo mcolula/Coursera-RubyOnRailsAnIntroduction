@@ -1,0 +1,23 @@
+<h1>Looking for <%= @search %></h1>
+
+<table>
+  
+  <thead>
+    <tr>
+      <th>Thumbnail</th>
+      <th>title</th>
+      <th>social</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= link_to(image_tag(recipe["image_url"], :width => 100, :height => 100), recipe["source_url"]) %></td>
+      <td><%= link_to(sanitize(recipe["title"]), recipe["source_url"]) %></td>
+      <td><%= recipe["social_rank"] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
